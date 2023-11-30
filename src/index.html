@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <h1 id="test"></h1>
+    <div class="container">
+      <h2>Insira o numero de Vitorias e Derrotas do Jogador</h2>
+      <form id="playerForm">
+        Vitorias:<br />
+        <input type="number" id="vitorias" name="vitorias" min="0" required />
+        <br />
+        Derrotas:<br />
+        <input type="number" id="derrotas" name="derrotas" min="0" required />
+        <br /><br />
+        <div class="container-btn">
+          <input type="button" value="Enviar" onclick="submitForm()" />
+        </div>
+      </form>
+      <h2 id="info-player"></h2>
+    </div>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+let infoPlayer = document.getElementById("info-player");
+
+function validarEntradas(vitorias, derrotas) {
+  if (vitorias === "" || derrotas === "") {
+    infoPlayer.innerHTML = `Por favor, preencha todos os campos.`;
+    console.log("Por favor, preencha todos os campos.");
+  } else {
+    return (saldoVitorias = calcularRank(vitorias, derrotas));
+  }
+}
+
+function calcularRank(vitorias, derrotas) {
+  let saldoVitorias = vitorias - derrotas;
+  console.log(saldoVitorias);
+  return saldoVitorias;
+}
+
+function submitForm() {
+  const vitorias = document.getElementById("vitorias").value;
+  const derrotas = document.getElementById("derrotas").value;
+
+  saldoVitorias = validarEntradas(vitorias, derrotas);
+  classificarNivel(saldoVitorias);
+  // if (saldoVitorias <= 10) {
+  //   infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+  // } else if (saldoVitorias >= 11 && saldoVitorias <= 20) {
+  //   infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+  // } else if (saldoVitorias >= 21 && saldoVitorias <= 50) {
+  //   infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+  // } else if (saldoVitorias >= 51 && saldoVitorias <= 80) {
+  //   infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+  // } else if (saldoVitorias >= 81 && saldoVitorias <= 90) {
+  //   infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+  // } else if (saldoVitorias >= 91 && saldoVitorias <= 100) {
+  //   infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+  // } else if (saldoVitorias >= 101) {
+  //   infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+  // } else {
+  //   infoPlayer.innerHTML = `Por favor, preencha todos os campos.`;
+  //   console.log("Por favor, preencha todos os campos.");
+  // }
+}
+// function submitForm(saldoVitorias) {
+//   validarEntradas(saldoVitorias);
+//   if (saldoVitorias <= 10) {
+//     infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}Ferro.`;
+//   } else if (saldoVitorias >= 11 && saldoVitorias <= 20) {
+//     infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}Bronze.`;
+//   } else if (saldoVitorias >= 21 && saldoVitorias <= 50) {
+//     infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}Prata.`;
+//   } else if (saldoVitorias >= 51 && saldoVitorias <= 80) {
+//     infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}Ouro.`;
+//   } else if (saldoVitorias >= 81 && saldoVitorias <= 90) {
+//     infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}Diamante.`;
+//   } else if (saldoVitorias >= 91 && saldoVitorias <= 100) {
+//     infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}Lendario.`;
+//   } else if (saldoVitorias >= 101) {
+//     infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}Imortal.`;
+//   } else {
+//     infoPlayer.innerHTML = `Por favor, preencha todos os campos.`;
+//     console.log("Por favor, preencha todos os campos.");
+//   }
+// }
+
+function classificarNivel(saldoVitorias) {
+  switch (saldoVitorias) {
+    case saldoVitorias <= 10:
+      nivel = "Ferro";
+      infoPlayerMensagem(saldoVitorias, nivel);
+      break;
+
+    default:
+      infoPlayer.innerHTML = `Por favor, preencha todos os campos.`;
+      console.log("Por favor, preencha todos os campos.");
+      break;
+  }
+}
+
+function infoPlayerMensagem(saldoVitorias, nivel) {
+  infoPlayer.innerHTML = `O Heroi tem de saldo ${saldoVitorias} sendo assim seu nivel é ${nivel}.`;
+}
+
+function initialize() {
+  submitForm();
+}
+initialize();
